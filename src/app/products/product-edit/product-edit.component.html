@@ -1,0 +1,175 @@
+<div class="container mtop">
+    <div class="row border pad m-2">
+        <div class="col-12">
+            <form [formGroup]="productForm" *ngIf="productForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 float-left animated-input mt20 ">
+                        <div class="example-form col-12 no_pad">
+                            <mat-form-field class="example-full-width col-12  pgng-lt0 ">
+                                <input matInput placeholder="Challenge Name" #pName formControlName="productName" autocomplete="off">
+                                <mat-error *ngIf="productForm.get('productName').touched && productForm.get('productName').invalid">
+                                    Name required
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 float-left animated-input mt20 ">
+                        <div class="example-form col-12 no_pad">
+                            <mat-form-field class="example-full-width col-12  pgng-lt0 ">
+                                <input matInput placeholder="Manufacturer" #pManufacturer formControlName="manufacturer" autocomplete="off">
+                                <mat-error *ngIf="productForm.get('manufacturer').touched && productForm.get('manufacturer').invalid">
+                                    Training Team required
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 float-left animated-input mt20 ">
+                        <div class="example-form col-12 no_pad">
+                            <mat-form-field class="example-full-width col-12  pgng-lt0 ">
+                                <input matInput type="number" placeholder="Price" #pPrice formControlName="productPrice" autocomplete="off">
+                                <mat-error *ngIf="productForm.get('productPrice').touched && productForm.get('productPrice').invalid">
+                                    Price required
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 float-left animated-input mt20 ">
+                        <div class="example-form col-12 no_pad">
+                            <mat-form-field class="example-full-width col-12  pgng-lt0 ">
+                                <input matInput type="number" placeholder="Quantity" #pQuantity formControlName="productQuantity" autocomplete="off">
+                                <mat-error *ngIf="productForm.get('productQuantity').touched && productForm.get('productQuantity').invalid">
+                                    Quantity required
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 float-left animated-input mt20 ">
+                        <div class="example-form col-12 no_pad">
+                            <mat-form-field class="example-full-width col-12  pgng-lt0 ">
+                                <input matInput type="url" placeholder="Image URL" #pimage formControlName="imageUrl" autocomplete="off">
+                                <mat-error *ngIf="(productForm.get('imageUrl').touched && productForm.get('imageUrl').invalid) || (    productForm .get('imageUrl').dirty &&     productForm .get('imageUrl').invalid)">
+                                    URL required
+                                </mat-error>
+                            </mat-form-field>
+
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 float-left animated-input mt20 ">
+
+                        <div class="col-6">
+                            <img [src]="pimage.value" style=" color:red; max-height: 200px; max-width: 200px;" class="img-responsive">
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 float-left">
+                        <div class="example-form col-12 no_pad">
+                            <mat-form-field class="example-full-width col-12">
+                                <mat-label>Description</mat-label>
+                                <textarea matInput type="text" placeholder="maximum 300 characters" #pDescription formControlName="productDescription" autocomplete="off" maxlength="300"></textarea>
+                                <mat-error *ngIf="productForm.get('productDescription').hasError('required')">
+                                    Description required
+                                </mat-error>
+
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="row toright mr">
+
+                    <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#exampleModal" [disabled]="!productForm.valid">
+            save
+          </button>
+                    <button type="button" class="btn btn-danger mr-2" (click)="onClear()">Cancel</button>
+                </div>
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Confirmation </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container">
+
+                                    <div class="row between">
+
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 nopad">
+
+                                            <img src="{{pimage.value}}" alt={{pName.value}} class="img-fluid rounded">
+                                        </div>
+
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 nopad">
+
+                                            <div class="col-12 margin-b-20 ptop no_pad">
+                                                <label for="name" class=" font-weight-bold">Challenge Name :</label>
+                                                <div>{{pName.value}}</div>
+                                            </div>
+                                            <div class="col-12 margin-b-20 no_pad">
+                                                <label for="manufacturer" class=" font-weight-bold">Training Team:</label>
+                                                <div>{{pManufacturer.value}}</div>
+                                            </div>
+                                            <div class="col-12 margin-b-20 no_pad">
+                                                <label for="price" class=" font-weight-bold">Price : </label>
+                                                <div>{{pPrice.value | currency : INR}}</div>
+                                            </div>
+                                            <div class="col-12 no_pad">
+                                                <label for="price" class=" font-weight-bold">Quantity :</label>
+                                                <div>{{pQuantity.value}}</div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-12 mt-2 no-pad margin-b-20 ">
+                                            <label for="Description" class=" font-weight-bold">Description :</label>
+                                            <div class="height-150">{{pDescription.value}}</div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel </button>
+                                <button type="button" class="btn btn-primary" (click)="submit()" data-dismiss="modal">Save
+                  changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- <button type= "button" class="btn btn-danger" (click)="onClear()">Cancel</button> -->
+
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmation </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <h1 *ngIf="!editfalse"> Are you Sure to Add Product  </h1>
+       <h1 *ngIf="editfalse"> Are you Sure to Update Product</h1>
+       {{image.value}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="submit()" data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> -->

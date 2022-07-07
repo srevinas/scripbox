@@ -1,0 +1,126 @@
+<div class="container">
+
+    <div class="float-left col-12 header-action-tab1">
+        <div class="float-left col-12 no-pad">
+
+
+            <h3 class="float-left heading-level">
+                <span class="cp" matTooltip="back" (click)="goback()"><i class="fa fa-arrow-left pr-2"
+            aria-hidden="true"></i></span>
+
+                <span>Challenges List</span>
+            </h3>
+        </div>
+    </div>
+
+    <div class="float-left col-12 header-action-tab">
+
+        <div class="float-left col-6 no-pad">
+            <div id="searchItem" class="float-left heading-level-one col-12 no-pad">
+                <!-- <span>Please select items to delete</span> -->
+                <input type="text" class="form-control1 float-left" placeholder="Search By Challenge Name" [(ngModel)]="searchItem">
+
+            </div>
+
+        </div>
+        <div id="deleteButton" class="float-right col-6">
+            <button type="button" class="btn btn-primary float-right " data-toggle="modal" data-target="#exampleModal" [disabled]="this.count">
+        Delete
+      </button>
+            <!-- <input type="text" class="form-control1 float-right" placeholder="Search By Name" [(ngModel)]="searchItem"> -->
+        </div>
+    </div>
+    <!-- <div class="row flex-end mar-b">
+
+
+
+
+
+
+  </div> -->
+
+
+
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 mt-8" *ngFor=" let product of products | filterByName:searchItem">
+
+                    <mat-card class="hovering">
+                        <div class="col-12">
+                            <mat-card-content>
+
+                                <div class="row ">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 height-50 ">
+                                        <span class=" col-2 pad-1">
+                      <mat-checkbox [(ngModel)]="product.isSelected" (change)="check(product.isSelected)">
+                      </mat-checkbox>
+                    </span>
+                                        <span class="chckbckgrd">{{product.productName}}</span>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 mt-2">
+                                        <div class="row between">
+                                            <div class="col-4">
+                                                <img [src]=product.imageUrl alt={{product.productName}} class="img" height="120px" width="120px">
+                                            </div>
+                                            <div class="col-6 ">
+                                                <div class="col-12" id="pManufacturer">
+                                                    <label for="manufacturer" class=" font-weight-bold">Training Team:</label>
+                                                    <div>{{product.manufacturer}}</div>
+                                                </div>
+                                                <div class="col-12  mt-1" id="pPrice">
+                                                    <label for="price" class=" font-weight-bold">Price : </label>
+                                                    <div>{{product.productPrice | currency:'INR':true}}</div>
+                                                </div>
+                                                <div class="col-12 mt-1" id="pQuantity">
+                                                    <label for="price" class=" font-weight-bold">Quantity :</label>
+                                                    <div>{{product.productQuantity}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 mt-2 no-pad" id="pDescription">
+                                    <label for="Description" class=" font-weight-bold">Description :</label>
+                                    <div id="pDescription" class="height-150">{{product.productDescription}}</div>
+
+
+                                </div>
+                            </mat-card-content>
+                        </div>
+
+                    </mat-card>
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body p-4">
+                Are you sure to delete {{this.list}} {{this.list==1 ? "product" : "poducts" }} ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+                <button type="button" class="btn btn-primary" (click)="delete()" data-dismiss="modal">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

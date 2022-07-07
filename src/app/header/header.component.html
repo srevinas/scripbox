@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-sm navbar-inverse bg-dark navbar-dark fixed-top">
+    <div class="container-fluid ">
+        <a class="navbar-brand">
+            <h2>Hack Ideas</h2>
+        </a>
+        <span class="display" (click)="openNav()">&#9776;</span>
+
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ml-auto">
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
+                    <a class="nav-link" routerLink="/">About</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="/products">Challenges List</a>
+                </li>
+
+
+
+                <li class="nav-item" style="cursor: pointer;" *ngIf="isAuthenticated">
+                    <a class="nav-link" (click)="viewProfile()">View Profile</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active" style="cursor: pointer;" *ngIf="!isAuthenticated">
+                    <a class="nav-link" routerLink="/signin">Log In</a>
+                </li>
+                <li class="nav-item" style="cursor: pointer;" *ngIf="isAuthenticated">
+                    <a class="nav-link" (click)="onLogOut()">Log Out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div *ngIf="sideNav" (click)="closeNav()" class="backdrop"></div>
+
+<div id="mySidenav" class="sidenav">
+    <ul class="navbar-nav ml-auto">
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
+            <a class="nav-link" (click)="closeNav()" routerLink="/">About</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" (click)="closeNav()" routerLink="/products">Challenges List</a>
+        </li>
+
+
+
+        <li class="nav-item" style="cursor: pointer;" *ngIf="isAuthenticated">
+            <a class="nav-link" (click)="viewProfile()">View Profile</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" style="cursor: pointer;" *ngIf="!isAuthenticated">
+            <a class="nav-link" (click)="closeNav()" routerLink="/signin">Log In</a>
+        </li>
+        <li class="nav-item" style="cursor: pointer;" *ngIf="isAuthenticated">
+            <a class="nav-link" (click)="onLogOut()">Log Out</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" (click)="closeNav()">Close</a>
+        </li>
+    </ul>
+</div>

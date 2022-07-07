@@ -1,0 +1,181 @@
+<div class="container">
+    <!-- <div class="div" id="parent" *ngIf="view">
+        <canvas id="myChart"  width="400px" height="400px"></canvas>
+    </div> -->
+
+    <div class="float-left col-12 header-action-tab">
+        <div class="float-left col-8 no-pad">
+            <h3 class="float-left heading-level-one">
+                <span>Challenges List</span>
+            </h3>
+        </div>
+
+        <div class="col-4 float-right no-pad">
+            <div class="dropdown">
+                <button class="btn btn-outline-secondary dispblock float-right dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Actions
+                </button>
+                <div class="dropdown-menu dropdown-menu1" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" (click)="AddProduct()">Add Challenge</a>
+                    <a class="dropdown-item" (click)="deleteProduct()"> Delete Challenge</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb">
+        <div id="searchItem" class="float-left disnone col-12 col-sm-12 col-md-6 col-lg-3">
+            <input type="text" class="form-control" placeholder="Search By Challenge Name" [(ngModel)]="searchItem" />
+        </div>
+        <div id="customizeDropdown" class="float-right col-sm-6 col-6 col-md-3 col-lg-3">
+            <button class="btn btn-outline-secondary w-10" matTooltip="Customization" (click)="open()">
+                Customize<i class="fa fa-sort-desc ff" aria-hidden="true"></i>
+            </button>
+            <div *ngIf="isSelected" class="pos-rel scrolly">
+                <ul class="dropdown-content pos-abs z-ind-99 top-2 b-top no_pad scrolly">
+                    <li class="list_names border_property">
+                        <mat-checkbox [(ngModel)]="IsManufacturer">
+                            Training Team
+                        </mat-checkbox>
+                    </li>
+                    <li class="list_names border_property">
+                        <mat-checkbox [(ngModel)]="isPrice"> Price </mat-checkbox>
+                    </li>
+                    <li class="list_names border_property">
+                        <mat-checkbox [(ngModel)]="isQuantity"> Quantity </mat-checkbox>
+                    </li>
+                    <li class="list_names border_property">
+                        <mat-checkbox [(ngModel)]="isDescription">Description</mat-checkbox>
+                    </li>
+
+                    <li class="list_names border_property">
+                        <button class="btn btn-primary wid" (click)="apply()">
+                            <span class="d-block">
+                                Apply
+                            </span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="float-left col-6 col-sm-16 col-md-3 col-lg-3 dispblock">
+            <div id="topViewed" class="dropdown col-12 float-right nopad">
+                <button class="btn btn-outline-secondary dropdown-toggle w-10" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Top Viewed
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" (click)="viewChart(3); view = true" data-toggle="modal" data-target="#exampleModal">Top 3</a>
+                    <a class="dropdown-item" (click)="viewChart(5); view = true" data-toggle="modal" data-target="#exampleModal">Top 5</a>
+                    <a class="dropdown-item" (click)="viewChart(7); view = true" data-toggle="modal" data-target="#exampleModal">Top 7</a>
+                    <a class="dropdown-item" (click)="viewChart(10); view = true" data-toggle="modal" data-target="#exampleModal">Top 10</a>
+                </div>
+            </div>
+        </div>
+        <div class="float-left mb-10 dBlock col-12 col-sm-12 col-md-6 col-lg-3">
+            <input type="text" class="form-control" placeholder="Search By Challenge Name" [(ngModel)]="searchItem" />
+        </div>
+
+        <div id="addButton" class="mar-b col-3 col-sm-3 col-lg-6 col-md-6 pleft">
+            <button class="btn btn-outline-secondary float-right" (click)="AddProduct()" matTooltip="add Challenge">
+                Add Challenge
+            </button>
+            <button class="btn btn-outline-secondary mx-2 float-right" (click)="deleteProduct()" matTooltip="delete Challenge">
+                Delete Challenge
+            </button>
+            <div class="dropdown float-right">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Top Viewed
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" (click)="viewChart(3); view = true" data-toggle="modal" data-target="#exampleModal">Top 3</a>
+                    <a class="dropdown-item" (click)="viewChart(5); view = true" data-toggle="modal" data-target="#exampleModal">Top 5</a>
+                    <a class="dropdown-item" (click)="viewChart(7); view = true" data-toggle="modal" data-target="#exampleModal">Top 7</a>
+                    <a class="dropdown-item" (click)="viewChart(10); view = true" data-toggle="modal" data-target="#exampleModal">Top 10</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 mt-8" *ngFor="let product of products | filterByName: searchItem">
+                    <mat-card class="hovering" (click)="getDetails(product.id)">
+                        <div class="col-12">
+                            <mat-card-content>
+                                <div class="row">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 float-left">
+                                        <span class="chckbckgrd col-8">
+                                            {{product.productName}}
+                                        </span>
+                                        <div class="icon-div">
+                                            <span class="cp clsbtnml delete" matTooltip="view details" (click)="getDetails(product.id)"><i class="fas fa-eye"></i></span>
+                                            <span class="cp clsbtnml delete" (click)="editProduct(product.id)" matTooltip="edit product">
+                                                <i class="fas fa-pen"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 mt-2">
+                                        <div class="row between">
+                                            <div class="col-4">
+                                                <img [src]="product.imageUrl" alt="{{ product.productName }}" class="img" height="120px" width="120px" />
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="col-12" *ngIf="Manufacturer">
+                                                    <label for="manufacturer" class="font-weight-bold">Training Team:</label>
+                                                    <div id="pManufacturer">{{ product.manufacturer }}</div>
+                                                </div>
+                                                <div class="col-12 mt-1" *ngIf="Price">
+                                                    <label for="price" class="font-weight-bold">Price :
+                                                    </label>
+                                                    <div id="pPrice">{{ product.productPrice | currency:'INR':true }}</div>
+                                                </div>
+                                                <div class="col-12 mt-1" *ngIf="Quantity">
+                                                    <label for="price" class="font-weight-bold">Quantity :</label>
+
+                                                    <div id="pQuantity">{{ product.productQuantity }}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 mt-2 no-pad" *ngIf="Description">
+                                    <label for="Description" class="desc font-weight-bold">Description :</label>
+                                    <div id="pDescription" class="height-150">{{ product.productDescription }}</div>
+                                </div>
+                            </mat-card-content>
+                        </div>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    Top Viewed Prducts Chart
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body p-4">
+                <div class="div" id="parent" *ngIf="view">
+                    <canvas id="myChart" width="400px" height="400px"></canvas>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                    Ok
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

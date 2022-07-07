@@ -1,0 +1,33 @@
+.container {
+  margin-top: 70px !important;
+  margin-bottom: 35px !important;
+}
+.margin-b-20 {
+  margin-bottom: 20px;
+}
+label {
+  margin: 0px !important;
+}
+.toright {
+  flex-direction: row-reverse;
+  margin: 10px 0;
+}
+.between {
+  justify-content: space-between;
+}
+.no-pad {
+  padding: 0px !important;
+}
+
+.rounded {
+  max-height: 350px;
+}
+.header-action-tab1 {
+  margin: 30px 0px;
+}
+
+@media screen and (max-width: 414px) {
+  .ptop {
+    margin-top: 30px;
+  }
+}

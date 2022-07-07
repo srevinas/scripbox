@@ -1,0 +1,50 @@
+
+.mtop{
+    margin-top: 100px !important;
+    margin-bottom: 35px !important;
+}
+.toright{
+    flex-direction: row-reverse;
+    margin: 10px 0;
+}
+
+.pad{
+    padding: 15px 0px;
+}
+.no-pad{
+     padding: 0px !important;
+}
+.f-size{
+    font-size: 18px;
+}
+.jst-end{
+    justify-content: flex-end;
+}
+.mr{
+    margin-right: 15px;
+}
+.no_pad{
+    padding: 0px !important;
+}
+label{
+    margin: 0px !important;
+}
+.margin-b-20{
+    margin-bottom: 20px;
+}
+.between{
+    justify-content: space-between;
+    }
+
+
+    .padding{
+        padding: 20px 25px !important;
+    }
+@media screen and (max-width: 414px) {
+    .ptop{
+        margin-top: 30px;
+    }
+    .nopad{
+        padding:  0px !important;
+    }
+ }

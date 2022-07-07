@@ -1,0 +1,97 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "productName": "Terminal Stack",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71ncRs6HzyL._SL1500_.jpg",
+      "manufacturer": "Terminal Stack",
+      "productPrice": 34999,
+      "productQuantity": 2,
+      "productDescription": "The award for the most unusual probably goes to The Stupid Hackathon — where “participants conceptualize and create projects that have no value whatsoever,” contrary to the usual mission of creating useful, functional products",
+      "isSelected": false,
+      "count": 15
+    },
+    {
+      "id": 2,
+      "productName": "Reboot Rebels",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/51PuFBgBK4L._SL1024_.jpg",
+      "manufacturer": "Reboot Rebels",
+      "productPrice": 52500,
+      "productQuantity": 7,
+      "productDescription": "Regardless of the event type, hackathons are an excellent opportunity to showcase your skills, connect with the local tech community, and learn from/collaborate with others with similar skill sets.",
+      "isSelected": false,
+      "count": 12
+    },
+    {
+      "productName": "Debug Thugs ",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/51nKJxw6dfL._SL1024_.jpg",
+      "manufacturer": "Debug",
+      "productPrice": 21710,
+      "productQuantity": 2,
+      "productDescription": "Regardless of the event type, hackathons are an excellent opportunity to showcase your skills, connect with the local tech community, and learn from/collaborate with others with similar skill sets.",
+      "isSelected": false,
+      "count": 12,
+      "id": 3
+    },
+    {
+      "productName": "Brainihacks",
+      "imageUrl": "https://images-eu.ssl-images-amazon.com/images/I/41r5PSwbsJL._SY300_SX300_QL70_FMwebp_.jpg",
+      "manufacturer": "Brainihacks",
+      "productPrice": 10000,
+      "productQuantity": 1,
+      "productDescription": "Regardless of the event type, hackathons are an excellent opportunity to showcase your skills, connect with the local tech community, and learn from/collaborate with others with similar skill sets.",
+      "isSelected": false,
+      "count": 1,
+      "id": 6
+    },
+    {
+      "productName": "Bootstrap Power",
+      "imageUrl": "https://th.bing.com/th/id/R.7546a7f3dcb5080c3a3e99c9bac74ff2?rik=APBOrrqO2RImHA&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f04%2fGoogle-Wallpaper-Images-HD-download.jpg&ehk=35sc7IoN7z1LxLdKS5TWfzkAqryYjlgTIA5lGWUJJmc%3d&risl=&pid=ImgRaw&r=0",
+      "manufacturer": "Google",
+      "productPrice": 2500,
+      "productQuantity": 1,
+      "productDescription": "Google Images is a way to visually discover information on the web. Explore image SEO best practices such as image captions and badges.",
+      "isSelected": false,
+      "count": 0,
+      "id": 7
+    }
+  ],
+  "signin": [
+    {
+      "id": 1,
+      "firstName": "bhagy",
+      "lastName": "kak",
+      "email": "bh@gmail.com",
+      "password": "12345678",
+      "location": "ban",
+      "mobileNumber": "9542876435"
+    },
+    {
+      "firstName": "bhagya",
+      "lastName": "kaku",
+      "email": "bhagya@gmail.com",
+      "password": "12345678",
+      "location": "chennai",
+      "mobileNumber": "8654324678",
+      "id": 2
+    },
+    {
+      "firstName": "vamsi",
+      "lastName": "kaku",
+      "email": "vamsi@gmail.com",
+      "password": "12345678",
+      "location": "bangalore",
+      "mobileNumber": "9578347698",
+      "id": 3
+    },
+    {
+      "firstName": "srevin",
+      "lastName": "a s",
+      "email": "srevinas3@gmail.com",
+      "password": "12345678",
+      "location": "bangalore",
+      "mobileNumber": "9012345678",
+      "id": 4
+    }
+  ]
+}

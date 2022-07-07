@@ -1,0 +1,168 @@
+<div class="container mt100">
+    <div class="row ">
+        <div class="col-12">
+            <form [formGroup]="signinForm" *ngIf="!isLogIn" (ngSubmit)="onSubmit()">
+                <div class="col-12 border rounded p-4">
+                    <div id="error" class="alert alert-warning" *ngIf="emailSigninError" role="alert">
+                        {{ErrorMessage}}
+                    </div>
+
+                    <div class="row justify-content-center ">
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 float-left  ">
+                            <div class="example-form col-12 no_pad">
+                                <mat-form-field class="example-full-width col-12  pgng-lt0 ">
+                                    <input matInput placeholder="First Name" formControlName="firstName" autocomplete="off" required>
+                                    <mat-error *ngIf="signinForm.get('firstName').touched && signinForm.get('firstName').invalid">
+                                        First Name <strong>required</strong>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 float-left animated-input mt20 ">
+                            <div class="example-form col-12 no_pad">
+                                <mat-form-field class="example-full-width col-12  pgng-lt0 ">
+                                    <input matInput placeholder="Last Name" formControlName="lastName" autocomplete="off" required>
+                                    <mat-error *ngIf="signinForm.get('lastName').touched && signinForm.get('lastName').invalid">
+                                        Last Name <strong>required</strong>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 float-left animated-input mt20 ">
+                            <div class="example-form col-12 no_pad">
+                                <mat-form-field class="example-full-width col-12  pgng-lt0 ">
+                                    <input matInput placeholder="Email" formControlName="email" autocomplete="off" required>
+                                    <!-- <mat-error *ngIf="signinForm.get('email').touched && signinForm.get('email').invalid">
+                                    Name required
+                                </mat-error> -->
+                                    <mat-error *ngIf="signinForm.get('email').hasError('email') && !signinForm.get('email').hasError('required')">
+                                        Please enter a valid email address
+                                    </mat-error>
+                                    <mat-error *ngIf="signinForm.get('email').hasError('required')">
+                                        Email is <strong>required</strong>
+                                    </mat-error>
+                                    <!-- <mat-error *ngIf="emailSigninError">
+                                    Email already in use
+                                </mat-error> -->
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 float-left animated-input mt20 ">
+                            <div class="example-form col-12 no_pad">
+                                <mat-form-field class="example-full-width col-12  pgng-lt0 ">
+                                    <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" autocomplete="off" required>
+                                    <mat-icon matSuffix (click)="hide = !hide">
+                                        {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                    <mat-error *ngIf="signinForm.get('password').hasError('minlength')">
+                                        password my be atleast 8 characters
+                                    </mat-error>
+                                    <mat-error *ngIf="signinForm.get('password').hasError('required')">
+                                        Password <strong>required</strong>
+                                    </mat-error>
+
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 float-left animated-input mt20 ">
+                            <div class="example-form col-12 no_pad">
+                                <mat-form-field class="example-full-width col-12  pgng-lt0 ">
+                                    <input matInput placeholder="Location" formControlName="location" autocomplete="off" required>
+                                    <mat-error *ngIf="signinForm.get('location').touched && signinForm.get('location').invalid">
+                                        Location <strong>required</strong>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 float-left animated-input mt20 ">
+                            <div class="example-form col-12 no_pad">
+                                <mat-form-field class="example-full-width col-12  pgng-lt0 ">
+                                    <span matPrefix>+91 &nbsp;</span>
+                                    <input matInput placeholder="Mobile Number" formControlName="mobileNumber" autocomplete="off" required>
+                                    <mat-error *ngIf="signinForm.get('mobileNumber').hasError('required')">
+                                        Mobile Number <strong>required</strong>
+                                    </mat-error>
+                                    <mat-error *ngIf="signinForm.get('mobileNumber').invalid && !signinForm.get('mobileNumber').hasError('required')">
+                                        provide valid phone number
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="row justify-content-flex-end no-pad">
+                        <button type="button" class="btn btn-danger mr-2" (click)="isLogIn = true">
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary" [disabled]="!signinForm.valid">
+                            Register
+                        </button>
+
+                    </div>
+                </div>
+            </form>
+            <form [formGroup]="loginForm" *ngIf="isLogIn" (ngSubmit)="onLogin()">
+                <div class="row">
+
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="col-12 col-sm-12 col-md-9 col-lg-6 border pad mx-auto">
+                            <div class="row col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+                                <div id="errorLogin" class="alert alert-warning mx-auto" *ngIf="emailErroe" role="alert">
+                                    {{errorMessage}}
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <div class="col-12 no_pad">
+                                    <mat-form-field class="col-12 pad-0">
+                                        <input matInput placeholder="Email" class="pad-0" formControlName="email" autocomplete="off" required>
+                                        <mat-error *ngIf="loginForm.get('email').touched && loginForm.get('email').invalid">
+                                            Email <strong>required</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <div class="col-12 no_pad" id="password">
+                                    <mat-form-field class=" col-12 pad-0">
+                                        <input matInput placeholder="Password" class="pad-0" [type]="hide ? 'password' : 'text'" formControlName="password" autocomplete="off" required>
+                                        <mat-icon matSuffix (click)="hide = !hide">
+                                            {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                        <mat-error *ngIf="loginForm.get('password').touched && loginForm.get('password').invalid">
+                                            Password <strong>required</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="row col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+                                <div class="col-7 col-sm-8 col-md-8 col-lg-9 no-pad ml-auto">
+                                    <div id="register" class="float-right mt-2">
+                                        <span>Not a User? </span>
+                                        <span class="font-weight-bold signinBtn" (click)="signin()">Register</span>
+                                    </div>
+                                </div>
+                                <div class="col-5 col-sm-4 col-md-4 col-lg-3 ml-auto no-pad">
+                                    <div id="buttonLogin" class="float-right no-pad">
+
+                                        <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">
+                                            Sign In
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </form>
+
+        </div>
+    </div>
+</div>

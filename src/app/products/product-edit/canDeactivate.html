@@ -1,0 +1,16 @@
+
+<div class="col-12 no-pad">
+  <span class="font-weight-bold f-size ">Confirmation</span>
+  <span class="col-1 float-right  no_pad btndef-none mdi mdi-window-close close-icn" aria-label="close"
+    mat-dialog-close> <i class="fas fa-times"></i></span>
+</div>
+<hr>
+
+<div mat-dialog-content>
+  <p>Are you sure to Discard changes??</p>
+</div>
+<hr>
+<div class="row jst-end mt-4 mr-0">
+  <button class="btn btn-danger mr-2" (click)="dialogRef.close('cancel')">Cancel</button>
+  <button class="btn btn-primary" (click)="dialogRef.close('discard')">Discard</button>
+</div>

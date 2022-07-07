@@ -1,0 +1,99 @@
+.pad-1 {
+  padding-left: 4px !important;
+}
+.height-150 {
+  height: 180px;
+}
+.f-size {
+  font-size: 18px;
+}
+.container {
+  margin-top: 15px !important;
+}
+.toright {
+  flex-direction: row-reverse;
+  margin: 10px 0;
+}
+label {
+  margin: 0px !important;
+}
+.pl-40 {
+  padding-left: 40px !important;
+}
+.no-pad {
+  padding: 0px !important;
+}
+
+.hovering {
+  margin-bottom: 30px;
+  padding-top: 30px;
+}
+.between {
+  justify-content: space-between;
+}
+
+.hovering:hover {
+  box-shadow: 0px 0px 10px 2px rgb(156, 182, 218);
+}
+.chckbckgrd {
+  //  color: #2f81ff;
+  bottom: 2px;
+  font-weight: bold;
+  //  position: absolute;
+  font-size: 18px;
+}
+
+.clsbtnml {
+  margin-left: 10px;
+}
+.form-control1 {
+  /* display: block; */
+  /* width: 100%; */
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.cp {
+  cursor: pointer;
+}
+.height-50 {
+  height: 50px;
+}
+.heading-level {
+  margin: 30px 0px;
+}
+
+.pad-20 {
+  padding: 20px 0 20px 0;
+}
+.header-action-tab {
+  padding: 20px 0px 20px 0px;
+}
+.header-action-tab1 {
+  padding: 20px 0px 0px 0px;
+}
+.f-size {
+  font-size: 18px;
+}
+.padding {
+  padding: 20px 25px !important;
+}
+.jst-end {
+  justify-content: flex-end;
+}
+.container {
+  margin-top: 50px !important;
+  margin-bottom: 35px !important;
+}
+.modal {
+  top: 200px;
+}
