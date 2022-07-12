@@ -121,7 +121,6 @@ describe('ProductService', () => {
     });
   
     describe('UpdateProduct', () => {
-        // let expectedAddProduct: Product;
        let expectedUpdatedProduct = {
           "productName": "Brainihacks",
           "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81JuZO83LOL._SL1500_.jpg",

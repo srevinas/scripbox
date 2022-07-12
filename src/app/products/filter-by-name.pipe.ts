@@ -12,10 +12,8 @@ export class FilterByNamePipe implements PipeTransform {
       return products;
     }
     else{
-      // return products.filter(p=> p.productName.toLowerCase().indexOf(searchItem.toLowerCase()) !== -1);
-      return products.filter(p=> p.productName.toLowerCase().match(searchItem.toLowerCase()));
-      // return products.filter(p=> p.productName.toLowerCase().startsWith(searchItem.toLowerCase()));
-
+     return products.filter(p=> p.productName.toLowerCase().match(searchItem.toLowerCase()));
+    
 
     }
     
