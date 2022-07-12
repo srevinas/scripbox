@@ -22,7 +22,6 @@ export class ProductEditComponent implements OnInit, CanComponentDeactivate {
   isChanged = false;
   Manufa: string;
   count = 0;
-  // proName= this.productForm.get('productName').value;
 
   constructor(private productService: ProductService, private router: Router, private route: ActivatedRoute, public dialog: MatDialog) { }
 
@@ -161,9 +160,6 @@ export class ProductEditComponent implements OnInit, CanComponentDeactivate {
 
 })
 export class DialogSuccess {
-
-
-  // constructor(public dialogRef: MatDialog<DialogCanDeactive>) {} //end constructor
   constructor(
     public dialogRef: MatDialogRef<DialogSuccess>, @Inject(MAT_DIALOG_DATA) public data: any) { }
 }
@@ -178,8 +174,6 @@ export class DialogSuccess {
 })
 export class DialogCanDeactive {
 
-
-  // constructor(public dialogRef: MatDialog<DialogCanDeactive>) {} //end constructor
   constructor(
     public dialogRef: MatDialogRef<DialogCanDeactive>) { }
 }

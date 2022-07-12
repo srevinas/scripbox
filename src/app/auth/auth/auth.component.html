@@ -34,18 +34,12 @@
                             <div class="example-form col-12 no_pad">
                                 <mat-form-field class="example-full-width col-12  pgng-lt0 ">
                                     <input matInput placeholder="Email" formControlName="email" autocomplete="off" required>
-                                    <!-- <mat-error *ngIf="signinForm.get('email').touched && signinForm.get('email').invalid">
-                                    Name required
-                                </mat-error> -->
                                     <mat-error *ngIf="signinForm.get('email').hasError('email') && !signinForm.get('email').hasError('required')">
                                         Please enter a valid email address
                                     </mat-error>
                                     <mat-error *ngIf="signinForm.get('email').hasError('required')">
                                         Email is <strong>required</strong>
                                     </mat-error>
-                                    <!-- <mat-error *ngIf="emailSigninError">
-                                    Email already in use
-                                </mat-error> -->
                                 </mat-form-field>
                             </div>
                         </div>

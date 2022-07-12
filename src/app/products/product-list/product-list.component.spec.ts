@@ -1,4 +1,3 @@
-// import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import {async,inject,
    ComponentFixture, TestBed
   } from '@angular/core/testing';
@@ -7,7 +6,6 @@ import { BehaviorSubject, Subject } from 'rxjs';
 import { Product } from '../product.model';
 import { ProductService } from '../product.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { Router} from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -18,7 +16,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { HttpClientModule } from '@angular/common/http';
 import { FilterByNamePipe } from '../filter-by-name.pipe';
 import { tap } from 'rxjs/operators';
-// import {routing} from './app.routes';
 
 
 class MockProductService {
@@ -80,7 +77,6 @@ return this.products.pipe(tap(p=> this.setRecipes(p)));
 };
 
 describe('ProductListComponent', () => {
-  //component class testing
   describe('Component Class', () => {
 
 

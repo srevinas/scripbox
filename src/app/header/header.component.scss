@@ -1,102 +1,108 @@
 .f-size {
-  font-size: 18px;
+    font-size: 18px;
 }
+
 .padding {
-  padding: 20px 25px !important;
+    padding: 20px 25px !important;
 }
+
 .jst-end {
-  justify-content: flex-end;
+    justify-content: flex-end;
 }
-// .bg{
-//     // background-color: #00cccc;
-//     background-color: #91bdb0;
-//     padding: 0px 5px 0px 5px;
-//     }
+
 .navbar {
-  height: 60px !important;
+    height: 60px !important;
 }
+
 .no-pad {
-  padding: 0px !important;
+    padding: 0px !important;
 }
 
 .backdrop {
-  height: 100vh;
-  width: 100vw;
-  background-color: black;
-  position: fixed;
-  top: 0;
-  left: 0;
-  opacity: 0.4;
-  z-index: 5;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0.4;
+    z-index: 5;
 }
 
 ::ng-deep .cdk-overlay-pane {
-  width: 400px !important;
+    width: 400px !important;
 }
+
 .sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 999;
-  top: 0;
-  right: 0;
-  background-color: #343a40;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    background-color: #343a40;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 }
 
 .sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 18px;
-  color: #f1ebeb;
-  display: block;
-  transition: 0.3s;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #f1ebeb;
+    display: block;
+    transition: 0.3s;
 }
+
 .sidenavWidth {
-  width: 250px;
+    width: 250px;
 }
+
 .sidenavWidth-0 {
-  width: 0px;
+    width: 0px;
 }
+
 .sidenav li:hover {
-  color: #926e6e;
+    color: #926e6e;
 }
 
 .sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
 }
+
 .display {
-  display: none;
+    display: none;
 }
+
 .sidenav li:active {
-  background-color: whitesmoke;
-  opacity: 0.2;
+    background-color: whitesmoke;
+    opacity: 0.2;
 }
 
 .navbar-brand {
-  padding: 9px 0 0 10px;
+    padding: 9px 0 0 10px;
 }
+
 @media screen and (max-height: 450px) {
-  .sidenav {
-    padding-top: 15px;
-  }
-  .sidenav a {
-    font-size: 18px;
-  }
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
 }
 
 @media screen and (max-width: 767px) {
-  .display {
-    display: block;
-    font-size: 30px;
-    cursor: pointer;
-    padding-right: 15px;
-    color: whitesmoke;
-  }
+    .display {
+        display: block;
+        font-size: 30px;
+        cursor: pointer;
+        padding-right: 15px;
+        color: whitesmoke;
+    }
 }
